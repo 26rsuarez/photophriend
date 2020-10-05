@@ -1,0 +1,1 @@
+A website that pulls sunrise/sunset data and weather data to display to users wishing to know the photography conditions of a certain area.
