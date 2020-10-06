@@ -1,0 +1,20 @@
+To Do tasks for PhotoPhriend
+
+I HTML and CSS Styling (front end)
+    A. Button generating random tip from an array
+    B. Styled boxes for displaying sunrise, sunset, and local weather information
+    C. Area to call on photos (either from an array or an external source like google images)
+    D. Text box for search queries
+II Javascript (back end)
+    A. API calls
+        1. sunrise-sunset.org
+        2. openweathermap.org
+    B. Event handlers
+        1. Button clicks passing search information to the API
+        2. Button click generating random photography tips
+    C. Local Storage
+        1. Most recent search is saved to local storage
+III Backlog
+    A. Color coding a rating for good photography conditions vs bad
+    B. Providing area specific photos instead of generic images
+    C. Providing additional local information like parking or traffic (necessitating a 3rd API).
