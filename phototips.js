@@ -14,4 +14,14 @@ var photoTips = [
     "A low ISO creates a very sharp photo, but it requires more light or longer shutter speeds.",
     "The f/stop controls how much light the lens lets in.  Think of it like a pupil.  Low number is like a dialated pupil.",
     "The lower the f/stop, the more background blur.  A high f/stop will keep the entire scene in focus."
-]
+];
+
+//button click
+$("button").on("click", function () {
+    var random = photoTips[Math.floor(Math.random() * (photoTips.length - 1))]
+    console.log(random)
+    $("#fact-text").html(random);
+
+
+})
+
