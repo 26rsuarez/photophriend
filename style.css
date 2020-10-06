@@ -1,3 +1,7 @@
+.container{
+    margin: 0 auto;
+}
+
 header{
     width:100%;
     font-size:40px;
@@ -8,36 +12,39 @@ header{
     text-align: center;
     font-family:'Lobster', cursive;
 }
+
 h6{
     font-weight:bold;
+    font-size: 20px;
+    color:rgb(6, 83, 6);
+    text-align: center;
+}
+
+.panel{
+    margin-bottom: 10px;
+    border: rgb(0, 128, 107) solid 1px;
+    border-radius: .5rem;
+}
+.panel-heading{
+    font-weight:bold;
     font-family: 'Josefin Sans', sans-serif;
-    color:rgb(0, 128, 107);
+    font-size:20px;
+    background-color:rgb(106, 177, 159);
+    width:100%;
+    padding:10px;
+    color:white;
+}
+
+.panel-body{
+    margin: 10px;
+    padding: 10px;
 }
 
 #input-box{
     width:50%;
 }
 
-
-.container{
-    margin auto 0;
-}
-.box{
-    border: green solid 1px;
-    border-radius: .5rem;
-}
-.weather{
-    margin-left:10px;
+.row{
+    width:100%;
 }
 
-.search-box{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-.material-icons{
-    margin:10px;
-}
