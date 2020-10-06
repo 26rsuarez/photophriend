@@ -1,0 +1,16 @@
+Acceptence Criteria
+    WHEN a user visits a site,
+    THEN they can see a search bar and boxes for sunrise, sunset, weather information, and a map
+    WHEN the user inputs a city,
+    THEN sunrise, sunset, 5 day forecast, and current weather displays for that city appear on screen.
+    THEN that location is stored in local storage
+    WHEN the user clicks on the "photography tip" button,
+    THEN a random photography tip displays on screen (*DO NOT USE PROMPTS OR ALERTS*)
+
+    BONUS Criteria
+    WHEN the user selects a location,
+    THEN travel information for that location is shown
+    WHEN the user selects a location,
+    THEN photos from that area are displayed
+
+    

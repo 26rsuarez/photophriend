@@ -1,0 +1,3 @@
+    AS an aspiring photographer
+    I WANT to know when a potential site has the best conditions for outdoor photography
+    SO THAT I can maximize my potential as an amateur photographer.
