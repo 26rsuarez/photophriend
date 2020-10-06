@@ -2,6 +2,7 @@ To Do tasks for PhotoPhriend
 
 I HTML and CSS Styling (front end)
     A. Button generating random tip from an array
+        1. random fact generator button
     B. Styled boxes for displaying sunrise, sunset, and local weather information
     C. Area to call on photos (either from an array or an external source like google images)
     D. Text box for search queries
