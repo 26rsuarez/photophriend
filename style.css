@@ -55,10 +55,11 @@ h6{
     width:100%;
 }
 
-.button{
+#fact-text{
     margin:10px;
-    padding:10px;
-    background-color: rgb(247, 235, 235);
+    padding:15px;
+    background-color: transparent;
+    line-height:2;
     border:none;
 }
 
