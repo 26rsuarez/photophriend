@@ -1,3 +1,4 @@
+$(document).ready(function(){
 var photoTips = [
     "Keep a dog treat handy to draw a dog's attention for great photos of an attentive, furry friend!",
     "In landscape photography, you'll want a high f/stop to make sure everything is in focus.",
@@ -24,6 +25,21 @@ $(".tip-button").on("click", function () {
 
 
 })
+
+//carousel
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     var elems = document.querySelectorAll('.carousel');
+//     var instances = M.Carousel.init(elems, options);
+//   });
+
+  // Or with jQuery
+
+
+    $('.carousel').carousel();
+ 
+
+  //end carousel
 var mykey = "515798d11075abbf042d6d0ba0edef46"
 var city = "Austin";
 queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+mykey;
@@ -61,3 +77,4 @@ function showWeather(weatherData) {
 
 }
 
+ });
