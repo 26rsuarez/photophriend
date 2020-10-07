@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col m5">
                 <input type = "text" id ="input-box" placeholder ="Where">
-                <button class="waves-effect waves-light btn-small search-btn"><i class="fas fa-search-location"></i></button> 
+                <button class="waves-effect waves-light btn-small search-btn" id="search-btn"><i class="fas fa-search-location"></i></button> 
             </div>
 
             <div class="col m7 box">
@@ -56,24 +56,27 @@
         </div>
 
         <div class="row">
-            <div class="col l6 box"> 
+            <div class="col s12 l3 box"> 
                     <div class="panel">
                         <div class="panel-heading">
                             Today's Weather Condition
                         </div>
-                        <div class="panel-body" >
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore debitis tempore quo dolorum voluptas? Dolorem alias, dolor adipisci possimus, deleniti vero molestias modi tempore velit temporibus commodi perspiciatis ab hic.
+                        <div class="panel-body" id="weather-data">
                         </div>
                     </div>
             </div>
 
-            <div class="col l6 box"> 
+            <div class="col s12 l9 box"> 
                 <div class="panel">
                     <div class="panel-heading">
                        5-day Forecast
                     </div>
-                    <div class="panel-body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore debitis tempore quo dolorum voluptas? Dolorem alias, dolor adipisci possimus, deleniti vero molestias modi tempore velit temporibus commodi perspiciatis ab hic.
+                    <div class="panel-body row">
+                        <div class="col fiveday" id="Forecast0"></div>
+                        <div class="col fiveday" id="Forecast8"></div>
+                        <div class="col fiveday" id="Forecast16"></div>
+                        <div class="col fiveday" id="Forecast24"></div>
+                        <div class="col fiveday" id="Forecast32"></div>
                     </div>
                 </div>
             </div>
