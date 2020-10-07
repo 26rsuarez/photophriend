@@ -61,3 +61,15 @@ function showWeather(weatherData) {
 
 }
 
+var lo
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-97.784,30.294],
+zoom: 8
+});
+ 
+var marker = new mapboxgl.Marker()
+.setLngLat([-97.784,30.294])
+.addTo(map);
