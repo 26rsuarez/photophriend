@@ -17,7 +17,7 @@ var photoTips = [
 ];
 
 //button click
-$("button").on("click", function () {
+$(".tip-button").on("click", function () {
     var random = photoTips[Math.floor(Math.random() * (photoTips.length - 1))]
     console.log(random)
     $("#fact-text").html(random);
