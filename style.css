@@ -79,3 +79,8 @@ h6{
     position:absolute;
 }
 
+.carousel .carousel-item {
+    width: 400px;
+    height: 400px;
+}
+

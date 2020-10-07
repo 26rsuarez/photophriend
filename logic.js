@@ -26,41 +26,41 @@ $(".tip-button").on("click", function () {
 
 })
 //icon text
-var clearSky = {
-    day: "Bright light lets you use a fast shutter speed!",
-    night: "Great night for moon or star photos!"};
-var fewClouds = {
-    day: "Treat it like a sunny day, but watch your light meter!",
-    night: "You should be able to find a clear patch of sky."
-};
-var scatteredClouds = {
-    day: "Good cloud cover today!  Direct light won't be an issue.",
-    night: "Sky's not giving you anything tonight."
-};
-var brokenClouds = {
-    day: "Be ready to adapt!  Light could change quickly.",
-    night: "Probably a slow night.  Might get some cool moonlight shots."
-};
-var showerRain = {
-    day: "Always protect your gear!  Cameras don't do well wet.",
-    night: "Always protect your gear!  Cameras don't do well wet."
-},
-var rain = {
-    day: "Always protect your gear!  Cameras don't do well wet.",
-    night: "Always protect your gear!  Cameras don't do well wet."
-}
-var thunderstorm = {
-    day: "Stay inside! But long exposure shots are great for catching lightning."
-    night: "Stay inside! But long exposure shots are great for catching lightning."
-};
-var snow = {
-    day: "Snow reflects a lot of light.  Watch your light meter!"
-    night: "Just can't beat a moonlit snow scene with a long exposure"
-};
-var mist = {
-    day: "Mind your gear!  But misty days have a dream like quality."
-    night: "What's on TV tonight?"
-}
+// var clearSky = {
+//     day: "Bright light lets you use a fast shutter speed!",
+//     night: "Great night for moon or star photos!"};
+// var fewClouds = {
+//     day: "Treat it like a sunny day, but watch your light meter!",
+//     night: "You should be able to find a clear patch of sky."
+// };
+// var scatteredClouds = {
+//     day: "Good cloud cover today!  Direct light won't be an issue.",
+//     night: "Sky's not giving you anything tonight."
+// };
+// var brokenClouds = {
+//     day: "Be ready to adapt!  Light could change quickly.",
+//     night: "Probably a slow night.  Might get some cool moonlight shots."
+// };
+// var showerRain = {
+//     day: "Always protect your gear!  Cameras don't do well wet.",
+//     night: "Always protect your gear!  Cameras don't do well wet."
+// };
+// var rain = {
+//     day: "Always protect your gear!  Cameras don't do well wet.",
+//     night: "Always protect your gear!  Cameras don't do well wet."
+// };
+// var thunderstorm = {
+//     day: "Stay inside! But long exposure shots are great for catching lightning."
+//     night: "Stay inside! But long exposure shots are great for catching lightning."
+// };
+// var snow = {
+//     day: "Snow reflects a lot of light.  Watch your light meter!"
+//     night: "Just can't beat a moonlit snow scene with a long exposure"
+// };
+// var mist = {
+//     day: "Mind your gear!  But misty days have a dream like quality."
+//     night: "What's on TV tonight?"
+// }
 //carousel
 
 // document.addEventListener('DOMContentLoaded', function() {
