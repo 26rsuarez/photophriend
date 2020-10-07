@@ -44,21 +44,21 @@ var brokenClouds = {
 var showerRain = {
     day: "Always protect your gear!  Cameras don't do well wet.",
     night: "Always protect your gear!  Cameras don't do well wet."
-},
+};
 var rain = {
     day: "Always protect your gear!  Cameras don't do well wet.",
     night: "Always protect your gear!  Cameras don't do well wet."
 }
 var thunderstorm = {
-    day: "Stay inside! But long exposure shots are great for catching lightning."
+    day: "Stay inside! But long exposure shots are great for catching lightning.",
     night: "Stay inside! But long exposure shots are great for catching lightning."
 };
 var snow = {
-    day: "Snow reflects a lot of light.  Watch your light meter!"
+    day: "Snow reflects a lot of light.  Watch your light meter!",
     night: "Just can't beat a moonlit snow scene with a long exposure"
 };
 var mist = {
-    day: "Mind your gear!  But misty days have a dream like quality."
+    day: "Mind your gear!  But misty days have a dream like quality.",
     night: "What's on TV tonight?"
 }
 //carousel
