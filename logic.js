@@ -1,3 +1,4 @@
+$(document).ready(function(){
 var photoTips = [
     "Keep a dog treat handy to draw a dog's attention for great photos of an attentive, furry friend!",
     "In landscape photography, you'll want a high f/stop to make sure everything is in focus.",
@@ -17,13 +18,31 @@ var photoTips = [
 ];
 
 //button click
-$("button").on("click", function () {
+$(".tip-button").on("click", function () {
     var random = photoTips[Math.floor(Math.random() * (photoTips.length - 1))]
     console.log(random)
     $("#fact-text").html(random);
 
 
 })
+
+//carousel
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     var elems = document.querySelectorAll('.carousel');
+//     var instances = M.Carousel.init(elems, options);
+//   });
+
+  // Or with jQuery
+
+
+    $('.carousel').carousel();
+ 
+
+  //end carousel
+var mykey = "515798d11075abbf042d6d0ba0edef46"
+var city = "Austin";
+queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+mykey;
 
 //this event listener activates when a user searches for a city
 $(document).on("click", "#search-btn", function(event){
@@ -121,3 +140,18 @@ function showFiveDay(city) {
     })
 }
 
+
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-97.784,30.294],
+zoom: 8
+});
+ 
+var marker = new mapboxgl.Marker()
+.setLngLat([-97.784,30.294])
+.addTo(map);
+
+ });
