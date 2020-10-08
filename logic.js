@@ -138,6 +138,41 @@ function cityMap(lat, lon) {
     .addTo(map);
 }
 
+$(document).on("click", "#image-search-btn", function(event){
+    event.preventDefault();
+    //the search term typed is stored in a variable
+    var searchTerm = $("#img-input-text").val().trim();
+
+    //clear the input-box
+    $("#img-input-text").val("");
+    $("#images-searched").empty();
+    
+    //call the pixabay api to retrieve images
+    var API_KEY = '18630686-b32d8a06a134ebebae5d579f5';
+    var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent(searchTerm);
+    $.ajax({
+        url: URL,
+        method: "GET"
+    }).then(function(data){
+        if (parseInt(data.totalHits) > 0) {
+            console.log(data);
+            for (var i=0; i<5; i++) {
+                imgSrc = data.hits[i].webformatURL;
+                var img = $("<img>").attr("src", imgSrc);
+                $("#images-searched").append(img);
+
+            }
+        }
+            
+	    else {
+            $("#images-searched").text("No Searches Found")
+        }
+	        
+    });
+    
+
+})
+
 
 
 function renderButtons() {
