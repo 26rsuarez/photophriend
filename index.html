@@ -35,7 +35,8 @@
         <div class="row">
             <div class="col m5">
                 <input type = "text" id ="input-box" placeholder ="Where">
-                <button class="waves-effect waves-light btn-small search-btn" id="search-btn"><i class="fas fa-search-location"></i></button> 
+                <button class="waves-effect waves-light btn-small search-btn" id="search-btn"><i class="fas fa-search-location"></i></button>
+                <div id="city-buttons"></div>
             </div>
 
             <div class="col m7 box">
@@ -62,6 +63,15 @@
                             Today's Weather Condition
                         </div>
                         <div class="panel-body" id="weather-data">
+                            <ul>
+                                <li id="city-name"></li>
+                                <li id="temperature"></li>
+                                <li id="sunrise"></li>
+                                <li id="sunset"></li>
+                                <li id="description"></li>
+                                <li id="message"></li>
+                                
+                            </ul>
                         </div>
                     </div>
             </div>

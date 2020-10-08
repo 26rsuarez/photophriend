@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+    var cities = [];
+
 var photoTips = [
     "Keep a dog treat handy to draw a dog's attention for great photos of an attentive, furry friend!",
     "In landscape photography, you'll want a high f/stop to make sure everything is in focus.",
@@ -25,42 +28,41 @@ $(".tip-button").on("click", function () {
 
 
 })
-//icon text
-var clearSky = {
-    day: "Bright light lets you use a fast shutter speed!",
-    night: "Great night for moon or star photos!"};
-var fewClouds = {
-    day: "Treat it like a sunny day, but watch your light meter!",
-    night: "You should be able to find a clear patch of sky."
-};
-var scatteredClouds = {
-    day: "Good cloud cover today!  Direct light won't be an issue.",
-    night: "Sky's not giving you anything tonight."
-};
-var brokenClouds = {
-    day: "Be ready to adapt!  Light could change quickly.",
-    night: "Probably a slow night.  Might get some cool moonlight shots."
-};
-var showerRain = {
-    day: "Always protect your gear!  Cameras don't do well wet.",
-    night: "Always protect your gear!  Cameras don't do well wet."
-},
-var rain = {
-    day: "Always protect your gear!  Cameras don't do well wet.",
-    night: "Always protect your gear!  Cameras don't do well wet."
+//these messages will be displayed under todays weather information, for day and night
+var weatherMessages = {
+
+        "01d": "Bright light lets you use a fast shutter speed!",
+        "01n": "Great night for moon or star photos!",
+    
+        "02d": "Treat it like a sunny day, but watch your light meter!",
+        "02n": "You should be able to find a clear patch of sky.",
+    
+        "03d": "Good cloud cover today!  Direct light won't be an issue.",
+        "03n": "Sky's not giving you anything tonight.",
+   
+        "04d": "Be ready to adapt!  Light could change quickly.",
+        "04n": "Probably a slow night.  Might get some cool moonlight shots.",
+    
+        "09d": "Always protect your gear!  Cameras don't do well wet.",
+        "09n": "Always protect your gear!  Cameras don't do well wet.",
+  
+        "10d": "Always protect your gear!  Cameras don't do well wet.",
+        "10n": "Always protect your gear!  Cameras don't do well wet.",
+  
+    
+        "11d": "Stay inside! But long exposure shots are great for catching lightning.",
+        "11n": "Stay inside! But long exposure shots are great for catching lightning.",
+    
+    
+        "13d": "Snow reflects a lot of light.  Watch your light meter!",
+        "13n": "Just can't beat a moonlit snow scene with a long exposure",
+   
+    
+        "50d": "Mind your gear!  But misty days have a dream like quality.",
+        "50n": "What's on TV tonight?"
 }
-var thunderstorm = {
-    day: "Stay inside! But long exposure shots are great for catching lightning."
-    night: "Stay inside! But long exposure shots are great for catching lightning."
-};
-var snow = {
-    day: "Snow reflects a lot of light.  Watch your light meter!"
-    night: "Just can't beat a moonlit snow scene with a long exposure"
-};
-var mist = {
-    day: "Mind your gear!  But misty days have a dream like quality."
-    night: "What's on TV tonight?"
-}
+
+
 //carousel
 
 // document.addEventListener('DOMContentLoaded', function() {
@@ -71,7 +73,7 @@ var mist = {
   // Or with jQuery
 
 
-    $('.carousel').carousel();
+$('.carousel').carousel();
  
 
   //end carousel
@@ -84,6 +86,11 @@ $(document).on("click", "#search-btn", function(event){
     event.preventDefault();
     //the city typed is stored in a variable
     var city = $("#input-box").val().trim();
+    //push the city to the array
+    cities.push(city);
+    console.log(cities);
+    localStorage.setItem("savedArray", JSON.stringify(cities))
+    renderButtons()
     //clear the input-box
     $("#input-box").val("");
     //call openweathermap with the city
@@ -95,20 +102,49 @@ $(document).on("click", "#search-btn", function(event){
         method: "GET"
     }).then(showWeather);
     showFiveDay(city);
+    
 })
 
+function renderButtons() {
+    // clearing city button before creating new ones
+    $("#city-buttons").empty();
+
+    //if the array is stored in the local storage the old buttons will be created
+    //this will also call the showweather and fiveday forecast funtion on the last item
+    if (localStorage.getItem("savedArray")!==null) {
+      var savedArray = localStorage.getItem("savedArray")
+      cities = JSON.parse(savedArray);
+    }
+    // Looping through the array of movies
+    for (var i = 0; i < cities.length; i++) {
+
+      // Then dynamicaly generating buttons for each movie in the array
+      var cityButton = $("<button>");
+      // Adding a data-attribute
+      cityButton.attr("data-name", cities[i]);
+      // Providing the text
+      cityButton.text(cities[i]);
+      // Adding the button to the buttons-area div
+      $("#city-buttons").append(cityButton);
+    }
+}
 
 function showWeather(weatherData) {
     //clear the data from previous searches
-    $("#weather-data").empty();
+    $("#city-name").empty();
+    $("#temperature").empty();
+    $("#sunrise").empty();
+    $("#sunset").empty();
+    $("#description").empty();
+    $("#message").empty();
 
     //display the cityname
-    var cityName = $("<p>").text(weatherData.name)
-    $("#weather-data").append(cityName)
+    $("#city-name").text(weatherData.name)
+    
     //temp to farenheight and fixed to one decimal point
     var temp = ((weatherData.main.temp-273.15)*9/5+32).toFixed(1);
-    var tempDiv = $("<div>").text("Temp: "+temp+"°F");
-    $("#weather-data").append(tempDiv)
+    $("#temperature").text("Temp: "+temp+"°F");
+    
 
     //latitude and longitude in case we need them later on
     var lat = weatherData.coord.lat;
@@ -119,22 +155,31 @@ function showWeather(weatherData) {
     var sunriseHour = sunriseTime.getHours();
     var sunriseMins = sunriseTime.getMinutes();
     var sunriseMins1 = String(sunriseMins).padStart(2, '0');
-    var sunriseDiv = $("<div>").text("Sunrise: "+sunriseHour+":"+sunriseMins1+" am");
-    $("#weather-data").append(sunriseDiv)
+    $("#sunrise").text("Sunrise: "+sunriseHour+":"+sunriseMins1+" am");
+    
 
     //time of sunset
     var sunsetTime = new Date(weatherData.sys.sunset*1000)
     var sunsetHour = sunsetTime.getHours();
     var sunsetMins = sunsetTime.getMinutes();
     var sunsetMins1 = String(sunsetMins).padStart(2, '0');
-    var sunsetDiv = $("<div>").text("Sunset: "+(sunsetHour-12)+":"+sunsetMins1+" pm");
-    $("#weather-data").append(sunsetDiv)
+    $("#sunset").text("Sunset: "+(sunsetHour-12)+":"+sunsetMins1+" pm");
+    
 
 
     //cloudy or not?
     var cloudDescription = weatherData.weather[0].description;
-    var cloudDiv = $("<div>").text(cloudDescription);
-    $("#weather-data").append(cloudDiv)
+    $("#description").text(cloudDescription);
+
+    //icon and message
+    var iconPic = weatherData.weather[0].icon;
+    var iconImg = $("<img>").attr("src","https://openweathermap.org/img/wn/" +iconPic+ "@2x.png");
+    $("#weather-data").append(iconImg)
+    
+    var message = weatherMessages[iconPic];
+    $("#message").text(message);
+    
+
 
 }
 
