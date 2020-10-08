@@ -82,6 +82,10 @@ $(document).ready(function () {
     var lat;
     var lon;
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
+    
+    //show today and five day forecast on the page
+    $("#today-display").hide();
+    $("#five-day-display").hide();
 
     //this event listener activates when a user searches for a city
     $(document).on("click", "#search-btn", function (event) {
@@ -99,13 +103,18 @@ $(document).ready(function () {
             method: "GET"
         }).then(showWeather);
         showFiveDay(city);
+        
     })
 
 
     function showWeather(weatherData) {
         //clear the data from previous searches
         $("#weather-data").empty();
-
+        
+        //show today and five day forecast on the page
+        $("#today-display").show();
+        $("#five-day-display").show();
+        
         //display the cityname
         var cityName = $("<p>").text(weatherData.name)
         $("#weather-data").append(cityName)
