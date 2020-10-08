@@ -74,9 +74,8 @@ var weatherMessages = {
 
 
 $('.carousel').carousel();
- 
-
   //end carousel
+
 var mykey = "515798d11075abbf042d6d0ba0edef46"
 var city = "Austin";
 queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+mykey;
@@ -217,21 +216,19 @@ function showFiveDay(city) {
         
         $(divId).append(date,icon,temp);
     }
-    })
-}
 
 
+    // default location shown on map- Austin 
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-97.72, 30.27],
+        zoom: 8
+    });
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: [-97.784,30.294],
-zoom: 8
-});
- 
-var marker = new mapboxgl.Marker()
-.setLngLat([-97.784,30.294])
-.addTo(map);
-
- });
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-97.72, 30.27])
+        .addTo(map);
+})
+}})
