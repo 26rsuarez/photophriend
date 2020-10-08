@@ -63,19 +63,9 @@ var weatherMessages = {
         "50n": "What's on TV tonight?"
 }
 
-
-//carousel
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     var elems = document.querySelectorAll('.carousel');
-//     var instances = M.Carousel.init(elems, options);
-//   });
-
-  // Or with jQuery
-
-
+//carousel images
 $('.carousel').carousel();
-  //end carousel
+
 var lat;
 var lon;
 city="Austin";
@@ -159,6 +149,7 @@ $(document).on("click", "#image-search-btn", function(event){
             for (var i=0; i<5; i++) {
                 imgSrc = data.hits[i].webformatURL;
                 var img = $("<img>").attr("src", imgSrc);
+                $(img).attr("class", "responsive-img")
                 $("#images-searched").append(img);
 
             }
@@ -193,7 +184,7 @@ function renderButtons() {
 
       // Then dynamicaly generating buttons for each movie in the array
       var cityButton = $("<button>");
-      cityButton.addClass("city-btn");
+      cityButton.addClass("city-btn waves-effect waves-light btn");
       // Adding a data-attribute
       cityButton.attr("data-name", cities[i]);
       // Providing the text
