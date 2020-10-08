@@ -109,6 +109,19 @@ $(document).on("click", "#search-btn", function(event){
     
 })
 
+//event listener for buttons created
+$(document).on("click", ".city-btn", function() {
+    var city = $(this).attr("data-name");
+    var mykey = "515798d11075abbf042d6d0ba0edef46"
+    queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+mykey;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(showWeather);
+    showFiveDay(city);
+});
+
 function cityMap(lat, lon) {
     // map of the searched city 
     var map = new mapboxgl.Map({
@@ -141,6 +154,7 @@ function renderButtons() {
 
       // Then dynamicaly generating buttons for each movie in the array
       var cityButton = $("<button>");
+      cityButton.addClass("city-btn");
       // Adding a data-attribute
       cityButton.attr("data-name", cities[i]);
       // Providing the text
@@ -199,8 +213,8 @@ function showWeather(weatherData) {
 
     //icon and message
     var iconPic = weatherData.weather[0].icon;
-    var iconImg = $("<img>").attr("src","https://openweathermap.org/img/wn/" +iconPic+ "@2x.png");
-    $("#weather-data").append(iconImg)
+    $("#icon-image").attr("src","https://openweathermap.org/img/wn/" +iconPic+ "@2x.png");
+
     
     var message = weatherMessages[iconPic];
     $("#message").text(message);
@@ -255,5 +269,7 @@ var map = new mapboxgl.Map({
 var marker = new mapboxgl.Marker()
     .setLngLat([-97.72, 30.27])
     .addTo(map);
+
+renderButtons();
 
 })
