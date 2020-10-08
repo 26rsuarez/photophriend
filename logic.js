@@ -75,10 +75,15 @@ var weatherMessages = {
 
 $('.carousel').carousel();
   //end carousel
+var lat;
+var lon;
+city="Austin";
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
 
-var mykey = "515798d11075abbf042d6d0ba0edef46"
-var city = "Austin";
-queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+mykey;
+//hide today and five day forecast on the page
+$("#today-display").hide();
+$("#five-day-display").hide();
+
 
 //this event listener activates when a user searches for a city
 $(document).on("click", "#search-btn", function(event){
@@ -103,6 +108,23 @@ $(document).on("click", "#search-btn", function(event){
     showFiveDay(city);
     
 })
+
+function cityMap(lat, lon) {
+    // map of the searched city 
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [lon, lat],
+        zoom: 8
+    });
+
+    //marker for the searched city
+    var marker = new mapboxgl.Marker()
+    .setLngLat([lon, lat])
+    .addTo(map);
+}
+
+
 
 function renderButtons() {
     // clearing city button before creating new ones
@@ -137,6 +159,10 @@ function showWeather(weatherData) {
     $("#description").empty();
     $("#message").empty();
 
+    //show today and five day forecast on the page
+    $("#today-display").show();
+    $("#five-day-display").show();
+
     //display the cityname
     $("#city-name").text(weatherData.name)
     
@@ -148,6 +174,7 @@ function showWeather(weatherData) {
     //latitude and longitude in case we need them later on
     var lat = weatherData.coord.lat;
     var lon = weatherData.coord.lon;
+    cityMap(lat, lon);
 
     //time of sunrise
     var sunriseTime = new Date(weatherData.sys.sunrise*1000)
@@ -177,9 +204,6 @@ function showWeather(weatherData) {
     
     var message = weatherMessages[iconPic];
     $("#message").text(message);
-    
-
-
 }
 
 function showFiveDay(city) {
@@ -216,19 +240,20 @@ function showFiveDay(city) {
         
         $(divId).append(date,icon,temp);
     }
-
-
-    // default location shown on map- Austin 
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-97.72, 30.27],
-        zoom: 8
-    });
-
-    var marker = new mapboxgl.Marker()
-        .setLngLat([-97.72, 30.27])
-        .addTo(map);
 })
-}})
+}
+
+// // default location shown on map- Austin 
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWgtbmd1eWVuIiwiYSI6ImNrZnd3bHprMjFrdGMycnMzZ3NpNXp6bWIifQ.KshsCNOECr3u78WesbqUzQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-97.72, 30.27],
+    zoom: 8
+});
+
+var marker = new mapboxgl.Marker()
+    .setLngLat([-97.72, 30.27])
+    .addTo(map);
+
+})
