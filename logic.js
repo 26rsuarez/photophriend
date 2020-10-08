@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     var cities = [];
+    var lastCities
 
 var photoTips = [
     "Keep a dog treat handy to draw a dog's attention for great photos of an attentive, furry friend!",
@@ -182,7 +183,10 @@ function renderButtons() {
     //this will also call the showweather and fiveday forecast funtion on the last item
     if (localStorage.getItem("savedArray")!==null) {
       var savedArray = localStorage.getItem("savedArray")
-      cities = JSON.parse(savedArray);
+     searchHistory = JSON.parse(savedArray);
+      var lastCities = searchHistory[searchHistory.length-1];
+      console.log(cities);
+      cities = [lastCities]
     }
     // Looping through the array of movies
     for (var i = 0; i < cities.length; i++) {
@@ -195,7 +199,7 @@ function renderButtons() {
       // Providing the text
       cityButton.text(cities[i]);
       // Adding the button to the buttons-area div
-      $("#city-buttons").append(cityButton);
+      $("#city-buttons").prepend(cityButton);
     }
 }
 
