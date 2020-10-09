@@ -71,6 +71,14 @@ $(document).ready(function () {
         var random = photoTips[Math.floor(Math.random() * (photoTips.length - 1))];
         $("#fact-text").html(random);
     })
+
+    //this allows the enter button to search for a city
+    $("#input-box").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#search-btn").click();
+        }
+    });
+
     //this event listener activates when a user searches for a city
     $(document).on("click", "#search-btn", function (event) {
         event.preventDefault();
@@ -294,6 +302,12 @@ $(document).ready(function () {
         })
     }
     getLocation();
+
+    $("#img-input-text").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#image-search-btn").click();
+        }
+    });
 
 
     // this is for inspiration corner
