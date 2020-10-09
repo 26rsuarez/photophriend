@@ -8,11 +8,7 @@ PhotoPhriend utilizes HTML, CSS, and javascript while also employing jQuery, Mat
 
 ## Website Layout
 
-![PhotoPhriend as it appears after a search](./Screenshots/example3.png)
-
-![Photo gallery and beginning of map](./Screenshots/example2.png)
-
-![Rest of map and image search](./Screenshots/example1.png)
+![demo](PhotoPhriend.gif)
 
 ## Website
 [View PhotoPhriend here](https://ikethe4.github.io/photophriend)
