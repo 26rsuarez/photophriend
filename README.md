@@ -4,7 +4,7 @@ The direction and amount of light on a given subject is the most important aspec
 
 ## Technology used
 
-PhotoPhriend utilizes HTML, CSS, and javascript while also employing jQuery, Materialize, , and the APIs Openweathermap, Pixabay, and Mapbox.
+PhotoPhriend utilizes HTML, CSS, and javascript while also employing jQuery, Materialize, geolocation integration, and the APIs Openweathermap, Pixabay, and Mapbox.
 
 ## Website Layout
 
